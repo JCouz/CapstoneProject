@@ -16,7 +16,6 @@ import jakarta.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping("/restaurants")
-@CrossOrigin(origins = "http://127.0.0.1:4200")
 public class RestaurantController {
 
 	@Autowired
