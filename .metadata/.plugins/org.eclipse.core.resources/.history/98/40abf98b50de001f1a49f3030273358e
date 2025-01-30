@@ -1,0 +1,90 @@
+package com.fd.foodDelivery.entity;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "orders")
+public class Order {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
+
+	@ManyToOne
+	@JoinColumn(name = "restaurant_id")
+	private Restaurant restaurant;
+
+	private LocalDateTime order_time;
+	private double total;
+	
+	public Order() {
+		
+	}
+// Does this need id guys? Does the entity look right?
+	public Order(Long id, Customer customer, Restaurant restaurant, LocalDateTime order_time, double total) {
+		this.id = id;
+		this.customer = customer;
+		this.restaurant = restaurant;
+		this.order_time = order_time;
+		this.total = total;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public LocalDateTime getOrder_time() {
+		return order_time;
+	}
+
+	public void setOrder_time(LocalDateTime order_time) {
+		this.order_time = order_time;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", customer=" + customer + ", restaurant=" + restaurant + ", order_time="
+				+ order_time + ", total=" + total + "]";
+	}
+
+}

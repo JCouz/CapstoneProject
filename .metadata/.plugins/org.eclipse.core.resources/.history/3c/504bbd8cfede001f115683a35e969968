@@ -1,0 +1,42 @@
+package com.fd.foodDelivery.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fd.foodDelivery.entity.Customer;
+import com.fd.foodDelivery.repository.CustomerRepository;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@Service
+public class CustomerService {
+
+	@Autowired
+	private CustomerRepository repo;
+
+	public List<Customer> getAllCustomers() {
+		return repo.findAll();
+	}
+
+	public Customer getCustomerbyId(int id) {
+		if (!repo.existsById(id)) {
+			throw new EntityNotFoundException(id + " not found");
+		}
+
+		return repo.findById(id).get();
+	}
+
+	public Customer createCustomer(Customer customer) {
+		return repo.save(customer);
+	}
+	
+	public Customer updateCustomer(int id, Customer customer) {
+		if (!repo.existsById(id)) {
+			throw new EntityNotFoundException(id+ " not found")
+		}
+		customer.setId(id);
+		return repo.save(customer);
+	}
+}

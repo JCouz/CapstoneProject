@@ -1,0 +1,73 @@
+package com.fd.foodDelivery.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
+import com.fd.foodDelivery.entity.Order;
+import com.fd.foodDelivery.service.OrderService;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+	@Autowired
+	private OrderService service;
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Object> getOrderById(@PathVariable int id){
+		try {
+			Order order = service.getOrderById(id);
+			return ResponseEntity.ok(order);
+		} catch (EntityNotFoundException e) {
+			Map<String, String> errorMap = new HashMap<>();
+			errorMap.put("error", e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMap);
+		}
+	}
+	
+	@PostMapping
+	public ResponseEntity<Object> createOrder(@RequestBody Order order){
+		try {
+			Order createdOrder = service.createOrder(order);
+			return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
+		} catch (EntityNotFoundException e) {
+			Map<String, String> errorMap = new HashMap<>();
+			errorMap.put("error", e.getMessage());
+			return ResponseEntity.badRequest().body(errorMap);
+		}
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Object> updateOrder(@PathVariable int id, @RequestBody Order order){
+		try {
+			Order updatedOrder = service.updateOrder(id, order);
+			return ResponseEntity.ok(updatedOrder);
+		} catch (EntityNotFoundException e) {
+            Map<String, String> errorMap = new HashMap<>();
+            errorMap.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMap);
+        }
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteOrder(@PathVariable int id){
+		try {
+			service.deleteOrder(id);
+			return ResponseEntity.noContent().build();
+		} catch (EntityNotFoundException e) {
+			Map<String, String> errorMap = new HashMap<>();
+			errorMap.put("error", e.getMessage());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMap);
+		}
+	}
+	
+	
+}

@@ -1,0 +1,46 @@
+package com.fd.foodDelivery.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fd.foodDelivery.entity.Restaurant;
+import com.fd.foodDelivery.repository.RestaurantRepository;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@Service
+public class RestaurantService {
+
+	@Autowired
+	private RestaurantRepository repo;
+
+	public List<Restaurant> getAllRestaurants() {
+		return repo.findAll();
+	}
+
+	public Restaurant getRestaurantById(Long id) {
+		if (!repo.existsById(id))
+			throw new EntityNotFoundException(id + " not found");
+		return repo.findById(id).get();
+	}
+
+	public Restaurant createRestaurant(Restaurant restaurant) {
+		return repo.save(restaurant);
+	}
+
+	public Restaurant updateRestaurant(Long id, Restaurant restaurant) {
+		if (!repo.existsById(id)) {
+			throw new EntityNotFoundException(id + " not found");
+		}
+		restaurant.setId(id);
+		return repo.save(restaurant);
+	}
+
+	public void deleteRestaurant(Long id) {
+		if (repo.existsById(id))
+			repo.deleteById(id);
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.fd.foodDelivery.entity;
+
+public class Restaurant {
+
+}

@@ -1,0 +1,5 @@
+package com.fd.foodDelivery.repository;
+
+public interface CustomerRepository {
+
+}

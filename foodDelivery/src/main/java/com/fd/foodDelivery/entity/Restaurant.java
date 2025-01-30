@@ -1,0 +1,85 @@
+package com.fd.foodDelivery.entity;
+
+import java.util.List;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "restaurant")
+public class Restaurant {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	private String name;
+	private String location;
+	private Double rating;
+
+	private List<String> menu;
+	
+	public Restaurant() {
+		
+	}
+
+	public Restaurant(int id, String name, String location, Double rating, List<String> menu) {
+		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.rating = rating;
+		this.menu = menu;
+	}
+	
+	public Restaurant(String name, String location, Double rating, List<String> menu) {
+		this.name = name;
+		this.location = location;
+		this.rating = rating;
+		this.menu = menu;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public List<String> getMenu() {
+		return menu;
+	}
+
+	public void setMenu(List<String> menu) {
+		this.menu = menu;
+	}
+
+	@Override
+	public String toString() {
+		return "Restaurant [id=" + id + ", name=" + name + ", location=" + location + ", rating=" + rating + ", menu="
+				+ menu + "]";
+	}
+}

@@ -1,0 +1,15 @@
+package com.fd.foodDelivery.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="menu")
+public class MenuItem {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	
+	
+}
