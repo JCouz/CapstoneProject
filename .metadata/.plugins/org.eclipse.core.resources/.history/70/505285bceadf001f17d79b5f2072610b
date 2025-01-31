@@ -41,6 +41,7 @@ public class Restaurant {
 		this.name = name;
 		this.location = location;
 		this.rating = rating;
+		
 	}
 
 	public int getId() {

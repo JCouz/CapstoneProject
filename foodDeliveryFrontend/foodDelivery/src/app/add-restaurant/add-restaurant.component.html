@@ -1,1 +1,39 @@
-<p>add-restaurant works!</p>
+<div
+  class="container mt-5 align-items-center justify-content-between d-flex flex-column"
+>
+  <h1>Add Restaurant</h1>
+
+  <form (ngSubmit)="onSubmit()" class="d-flex flex-column align-items-center">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-control"
+        [(ngModel)]="restaurantData.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location:</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        class="form-control"
+        [(ngModel)]="restaurantData.location"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Rating:</label>
+      <input
+        type="text"
+        id="rating"
+        name="rating"
+        class="form-control"
+        [(ngModel)]="restaurantData.rating"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Restaurant</button>
+  </form>
+</div>

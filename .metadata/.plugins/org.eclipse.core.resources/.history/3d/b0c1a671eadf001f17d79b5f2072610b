@@ -36,12 +36,6 @@ public class Restaurant {
 		this.rating = rating;
 		this.menu = menu;
 	}
-	
-	public Restaurant(String name, String location, Double rating ){
-		this.name = name;
-		this.location = location;
-		this.rating = rating;
-	}
 
 	public int getId() {
 		return id;
