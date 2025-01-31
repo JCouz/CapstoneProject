@@ -8,6 +8,8 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
 import { Error404Component } from './error404/error404.component';
 import { MenuItemListComponent } from './menu-item-list/menu-item-list.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { MenuItemListComponent } from './menu-item-list/menu-item-list.component
     RestaurantDetailsComponent,
     Error404Component,
     MenuItemListComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
