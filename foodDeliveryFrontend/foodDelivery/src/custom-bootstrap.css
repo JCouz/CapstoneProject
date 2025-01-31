@@ -1,0 +1,4 @@
+.nav-pills {
+  --bs-nav-pills-link-active-color: red;
+  --bs-nav-pills-link-hover-bg: yellow;
+}

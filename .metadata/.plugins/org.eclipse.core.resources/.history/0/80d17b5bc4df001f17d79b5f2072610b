@@ -1,0 +1,17 @@
+INSERT INTO CUSTOMER (USERNAME, PASSWORD, EMAIL, ADDRESS) 
+VALUES ('john.doe', 'password123', 'john.doe@example.com', '123 Main St');
+
+INSERT INTO CUSTOMER (USERNAME, PASSWORD, EMAIL, ADDRESS) 
+VALUES ('jane.smith', 'securepass', 'jane.smith@example.com', '456 Oak Ave');
+
+INSERT INTO RESTAURANT (NAME, LOCATION, RATING, MENU) 
+VALUES ('Foodie Restaurant', 'London', 4.5, ('Burger', 'Pizza'));
+
+INSERT INTO RESTAURANT (NAME, LOCATION, RATING, MENU) 
+VALUES ('Tasty Bites', 'Manchester', 4.2, ('Salad', 'Pasta'));
+
+INSERT INTO ORDERS (ORDER_TIME, CUSTOMER_ID, RESTAURANT_ID) 
+VALUES ('2024-01-30 10:00:00', 1, 1);
+
+INSERT INTO ORDERS (ORDER_TIME, CUSTOMER_ID, RESTAURANT_ID) 
+VALUES ('2024-01-29 18:30:00', 2, 2);
