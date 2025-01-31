@@ -22,7 +22,7 @@ export class LoginComponent {
       this.password === this.adminPassword
     ) {
       localStorage.setItem('isAdminLoggedIn', 'true');
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/']);
     } else {
       alert('Invalid username or password');
     }

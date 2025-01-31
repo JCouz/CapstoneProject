@@ -10,6 +10,8 @@ import { Error404Component } from './error404/error404.component';
 import { MenuItemListComponent } from './menu-item-list/menu-item-list.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { AddRestaurantComponent } from './add-restaurant/add-restaurant.component';
+import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,9 @@ import { FormsModule } from '@angular/forms';
     Error404Component,
     MenuItemListComponent,
     LoginComponent,
+
+    AddRestaurantComponent,
+    AddMenuItemComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],

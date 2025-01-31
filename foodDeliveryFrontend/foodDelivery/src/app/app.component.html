@@ -1,15 +1,39 @@
 <div class="d-flex justify-content-start align-items-center m-5 gap-4">
   <h1>Food Delivery App</h1>
   <nav class="nav nav-pills nav-fill gap-2">
-    <a class="nav-link active" aria-current="page" routerLink="/restaurants"
+    <a
+      class="nav-link"
+      aria-current="page"
+      routerLink="/restaurants"
+      routerLinkActive="active"
       >Restaurants</a
     >
     <a
-      class="nav-link active"
-      aria-current="page"
+      class="nav-link"
       routerLink="/login"
       *ngIf="!isAdminLoggedIn"
+      routerLinkActive="active"
       >Login</a
+    >
+    <a
+      class="nav-link"
+      routerLink="/admin/add-restaurant"
+      *ngIf="isAdminLoggedIn"
+      routerLinkActive="active"
+      >Add Restaurant</a
+    >
+    <a
+      class="nav-link"
+      routerLink="/admin/add-menu-item"
+      *ngIf="isAdminLoggedIn"
+      routerLinkActive="active"
+      >Add Menu Item</a
+    >
+    <a
+      class="nav-link cursor-pointer"
+      *ngIf="isAdminLoggedIn"
+      (click)="logout()"
+      >Logout</a
     >
   </nav>
 </div>
