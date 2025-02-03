@@ -21,7 +21,6 @@ import { AddMenuItemComponent } from './add-menu-item/add-menu-item.component';
     Error404Component,
     MenuItemListComponent,
     LoginComponent,
-
     AddRestaurantComponent,
     AddMenuItemComponent,
   ],

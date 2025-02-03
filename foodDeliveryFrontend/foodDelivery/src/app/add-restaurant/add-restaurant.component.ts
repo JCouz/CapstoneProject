@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { RestaurantService } from '../service/restaurant.service';
+import { Restaurant } from '../model/restaurant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-restaurant',
@@ -8,19 +10,20 @@ import { Component } from '@angular/core';
   styleUrl: './add-restaurant.component.css',
 })
 export class AddRestaurantComponent {
-  restaurantData = { name: '', location: '', rating: 0 };
+  restaurantData: Restaurant = { name: '', location: '', rating: 0 };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    public restaurantService: RestaurantService,
+    private router: Router
+  ) {}
 
   onSubmit() {
-    this.http.post('/restaurants', this.restaurantData).subscribe(
-      (response) => {
-        console.log('Restaurant added:', response);
+    this.restaurantService
+      .createRestaurant(this.restaurantData)
+      .subscribe((data) => {
+        console.log('Data saved', data);
         this.restaurantData = { name: '', location: '', rating: 0 };
-      },
-      (error) => {
-        console.error('Error adding restaurant:', error);
-      }
-    );
+        this.router.navigate(['/']);
+      });
   }
 }

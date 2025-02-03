@@ -11,8 +11,12 @@ export class MenuItemService {
 
   constructor(private http: HttpClient) {}
 
-  getMenuItemsByRestaurant(restaurantId: number): Observable<any> {
-    const url = `${this.apiUrl}/restaurant/${restaurantId}`;
+  getMenuItemsByRestaurant(restaurant_id: number): Observable<any> {
+    const url = `${this.apiUrl}/restaurant/${restaurant_id}`;
     return this.http.get<MenuItem>(url);
+  }
+
+  createMenuItem(menuItem: MenuItem): Observable<MenuItem> {
+    return this.http.post<MenuItem>(this.apiUrl, menuItem);
   }
 }

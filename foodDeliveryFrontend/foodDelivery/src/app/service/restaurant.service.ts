@@ -19,4 +19,8 @@ export class RestaurantService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Restaurant>(url);
   }
+
+  createRestaurant(restaurant: Restaurant): Observable<Restaurant> {
+    return this.http.post<Restaurant>(this.apiUrl, restaurant);
+  }
 }

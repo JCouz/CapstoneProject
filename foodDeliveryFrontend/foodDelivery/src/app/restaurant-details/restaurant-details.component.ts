@@ -17,7 +17,7 @@ export class RestaurantDetailsComponent implements OnInit {
     rating: 0,
     menu: [],
   } as Restaurant;
-  restaurantId: number | undefined;
+  restaurant_id: number | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,11 +26,11 @@ export class RestaurantDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.restaurantId = params['id'];
+      this.restaurant_id = params['id'];
     });
 
     this.restaurantService
-      .getRestaurantById(Number(this.restaurantId))
+      .getRestaurantById(Number(this.restaurant_id))
       .subscribe((Response) => {
         this.restaurant = Response;
       });

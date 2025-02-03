@@ -19,10 +19,10 @@ export class MenuItemListComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const restaurantId = params['id'];
+      const restaurant_id = params['id'];
 
       this.menuItemService
-        .getMenuItemsByRestaurant(restaurantId)
+        .getMenuItemsByRestaurant(restaurant_id)
         .subscribe((response) => {
           console.log(response);
           this.menuItems = response;
